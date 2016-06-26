@@ -6,6 +6,14 @@ body {
     color: white;
 }
 
+.selected-person-details {
+    margin-bottom: 1em;
+    padding: 0.1em 1em 1em 1em;
+    background-color: #bcc6cc;
+    width: 20em;
+    border-radius: 5px;
+}
+
 .people-list {
     margin: 0 0 2em 0;
     list-style-type: none;

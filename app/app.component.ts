@@ -29,13 +29,15 @@ const PEOPLE: Person[] = [
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{selectedPerson.name}} details!</h2>
-    <div>
-        <label>ID: </label>{{selectedPerson.id}}
-    </div>
-    <div>
-        <label>Name: </label>
-        <input [(ngModel)]="selectedPerson.name" placeholder="name" />
+    <div *ngIf="selectedPerson" class="selected-person-details">
+        <h2>{{selectedPerson.name}} details!</h2>
+        <div>
+            <label>ID: </label>{{selectedPerson.id}}
+        </div>
+        <div>
+            <label>Name: </label>
+            <input [(ngModel)]="selectedPerson.name" placeholder="name" />
+        </div>
     </div>
     <ul class="people-list">
         <li *ngFor="let person of people" (click)="onSelect(person)">
@@ -48,6 +50,6 @@ const PEOPLE: Person[] = [
 export class AppComponent {
     title = "Farscape Heroes";
     public people = PEOPLE;
-    selectedPerson = this.people[0];
+    selectedPerson: Person;
     onSelect(person: Person) { this.selectedPerson = person; }
 }
