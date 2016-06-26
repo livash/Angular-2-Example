@@ -1,5 +1,5 @@
 # Angular 2 App
-This is an example of a single page app built using Angular 2 framework. I have built it following tutorial on [https://angular.io/](https://angular.io/)
+This is an example of a single page app built using Angular 2 framework. I have built it following tutorial from [angular.io/](https://angular.io/)
 I have added a number of my own views to this SPA.
 
 
