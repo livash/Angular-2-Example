@@ -29,6 +29,9 @@ const PEOPLE: Person[] = [
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
+    <a [href]="wikiUrl">
+        <img [src]="imageUrl" class="cover-image"/>
+    </a>
     <div *ngIf="selectedPerson" class="selected-person-details">
         <h2>{{selectedPerson.name}} details!</h2>
         <div>
@@ -53,5 +56,7 @@ export class AppComponent {
     title = "Farscape Heroes";
     public people = PEOPLE;
     selectedPerson: Person;
-    onSelect(person: Person) { this.selectedPerson = person; }
+    onSelect(person: Person) { this.selectedPerson = person; };
+    imageUrl = "http://www.henson.com/images/fantasy/farscape/fs-header.jpg";
+    wikiUrl = "https://en.wikipedia.org/wiki/Farscape";
 }

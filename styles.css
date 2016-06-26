@@ -1,6 +1,18 @@
 body {
     padding: 1em;
 }
+
+.cover-image {
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.cover-image:hover {
+    left: 0.1em;
+    top: 0.1em;
+    cursor: pointer;
+}
+
 .selected-person {
     background-color: #cfd8dc;
     color: #3bb9ff;
@@ -41,11 +53,6 @@ body {
     color: 607d8b;
     background-color: #ddd;
     left: 0.1em;
-}
-
-.people-list .text {
-    position: relative;
-    top: -3px;
 }
 
 .people-list .badge {
