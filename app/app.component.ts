@@ -40,7 +40,9 @@ const PEOPLE: Person[] = [
         </div>
     </div>
     <ul class="people-list">
-        <li *ngFor="let person of people" (click)="onSelect(person)">
+        <li *ngFor="let person of people"
+             (click)="onSelect(person)"
+             [class.selected-person]="person === selectedPerson">
             <span class="badge">{{person.id}}</span> {{person.name}}
         </li>
     </ul>
