@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
-export class Person {
-    id: number;
-    name: string;
-}
+import { Person } from './person';
+import { PersonDetailComponent } from './person-detail.component';
 
 const PEOPLE: Person[] = [
   { id: 11, name: 'John Crichton' },
@@ -32,16 +29,6 @@ const PEOPLE: Person[] = [
     <a [href]="wikiUrl">
         <img [src]="imageUrl" class="cover-image"/>
     </a>
-    <div *ngIf="selectedPerson" class="selected-person-details">
-        <h2>{{selectedPerson.name}} details!</h2>
-        <div>
-            <label>ID: </label>{{selectedPerson.id}}
-        </div>
-        <div>
-            <label>Name: </label>
-            <input [(ngModel)]="selectedPerson.name" placeholder="name" />
-        </div>
-    </div>
     <ul class="people-list">
         <li *ngFor="let person of people"
              (click)="onSelect(person)"
@@ -49,8 +36,12 @@ const PEOPLE: Person[] = [
             <span class="badge">{{person.id}}</span> {{person.name}}
         </li>
     </ul>
-    `
+       <my-person-detail [person]="selectedPerson"></my-person-detail>
+    `,
+    directives: [PersonDetailComponent]
 })
+
+
 
 export class AppComponent {
     title = "Farscape Heroes";
