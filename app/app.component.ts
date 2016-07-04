@@ -4,20 +4,20 @@ import { PersonDetailComponent } from './person-detail.component';
 import { PersonService } from './person.service';
 
 @Component({
-  selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-    <a [href]="wikiUrl">
-        <img [src]="imageUrl" class="cover-image"/>
-    </a>
-    <ul class="people-list">
-        <li *ngFor="let person of people"
-             (click)="onSelect(person)"
-             [class.selected-person]="person === selectedPerson">
-            <span class="badge">{{person.id}}</span> {{person.name}}
-        </li>
-    </ul>
-       <my-person-detail [person]="selectedPerson"></my-person-detail>
+    selector: 'my-app',
+    template: `
+        <h1>{{title}}</h1>
+        <a [href]="wikiUrl">
+            <img [src]="imageUrl" class="cover-image"/>
+        </a>
+        <ul class="people-list">
+            <li *ngFor="let person of people"
+                (click)="onSelect(person)"
+                [class.selected-person]="person === selectedPerson">
+                <span class="badge">{{person.id}}</span> {{person.name}}
+            </li>
+        </ul>
+        <my-person-detail [person]="selectedPerson"></my-person-detail>
     `,
     directives: [PersonDetailComponent],
     providers: [PersonService]
