@@ -23,8 +23,6 @@ import { PersonService } from './person.service';
     providers: [PersonService]
 })
 
-
-
 export class AppComponent implements OnInit {
     constructor(private personService: PersonService) {};
     title = "Farscape Heroes";
