@@ -1,41 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Person } from './person';
-import { PersonDetailComponent } from './person-detail.component';
+import { Component } from '@angular/core';
 import { PersonService } from './person.service';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     selector: 'my-app',
     template: `
         <h1>{{title}}</h1>
-        <a [href]="wikiUrl">
-            <img [src]="imageUrl" class="cover-image"/>
-        </a>
-        <ul class="people-list">
-            <li *ngFor="let person of people"
-                (click)="onSelect(person)"
-                [class.selected-person]="person === selectedPerson">
-                <span class="badge">{{person.id}}</span> {{person.name}}
-            </li>
-        </ul>
-        <my-person-detail [person]="selectedPerson"></my-person-detail>
+        <nav>
+            <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
+            <a [routerLink]="['/people']" routerLinkActive="active">Heroes</a>
+        </nav>
+        <router-outlet></router-outlet>
     `,
-    directives: [PersonDetailComponent],
+    directives: [ROUTER_DIRECTIVES],
     providers: [PersonService]
 })
 
-export class AppComponent implements OnInit {
-    constructor(private personService: PersonService) {};
-    title = "Farscape Heroes";
-    people: Person[];
-    selectedPerson: Person;
-    onSelect(person: Person) { this.selectedPerson = person; };
-    imageUrl = "http://www.henson.com/images/fantasy/farscape/fs-header.jpg";
-    wikiUrl = "https://en.wikipedia.org/wiki/Farscape";
-
-    ngOnInit() {
-        this.personService.getPeople()
-            .then( results => {
-                this.people = results;
-            });
-    }
+export class AppComponent {
+    title = "FarScape";
 }
